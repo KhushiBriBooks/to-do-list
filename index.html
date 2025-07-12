@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="completion-message" class="completion-message"></div>
+    <div class="container">
+        <div class="to-do">
+            <h2>To-do List</h2>
+            <div class="row">
+                <input type="text" placeholder="Add your task" id="inputcol">
+                <button onclick="addTask()" class="add-btn">Add</button>
+            </div>
+
+            <p id="no-task-message">📝 Your task list is empty. Add some tasks to get started!</p>
+
+            <ul id="list-container"></ul>
+            <div class="counters">
+                <p> Completed: <span id="completed-counter">0</span></p>
+                |
+                <p>Uncompleted: <span id="uncompleted-counter">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

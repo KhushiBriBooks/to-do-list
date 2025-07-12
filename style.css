@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('assets/bg-image.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.completion-message {
+    position: relative;
+    text-align: center;
+    background: rgba(50, 205, 50, 0.8);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.completion-message.show {
+    opacity: 1;
+}
+
+#no-task-message {
+    text-align: center;
+    color: #ff4d4d;
+    font-size: 24px;
+    margin: 60px 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 540px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+}
+
+.to-do h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+#inputcol {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.add-btn {
+    border: none;
+    outline: none;
+    padding: 14px 30px;
+    background: #4169e1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+.add-btn:hover {
+    background: #27408b;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-image: url(assets/uncheck.png);
+    background-size: cover;
+    background-position: center;
+    left: 16px;
+}
+
+ul li.checked::before {
+    background-image: url(assets/check.jpeg);
+}
+
+.task-text {
+    flex: 1;
+    margin-left: 80px;
+    word-break: break-word;
+}
+
+ul li.checked .task-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-icon,
+.delete-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ccc;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+    transform: scale(1.2);
+    color: #ff4d4d;
+}
+
+.counters {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.counters span {
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+#completed-counter {
+    color: #32cd32;
+}
+
+#uncompleted-counter {
+    color: #ffa500;
+}
+
+ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+/* ---------- Mobile Responsive Styles ---------- */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+
+    .to-do h2 {
+        font-size: 22px;
+    }
+
+    .row {
+        flex-direction: row;
+        align-items: stretch;
+        padding-left: 10px;
+    }
+
+    #inputcol {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .add-btn {
+        width: 30%;
+        padding: 0;
+        
+        font-size: 14px;
+    }
+
+    .counters {
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    #no-task-message {
+        font-size: 18px;
+        margin: 40px 10px;
+    }
+
+    .completion-message {
+        font-size: 14px;
+        padding: 8px 12px;
+        margin: 12px;
+       
+    }
+
+    ul li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 12px 10px 50px;
+    }
+
+    .task-text {
+        margin-left: 0;
+        margin-top: 6px;
+        font-size: 15px;
+    }
+
+    .icon-container {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+
+    .edit-icon,
+    .delete-icon {
+        font-size: 16px;
+    }
+}
